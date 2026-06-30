@@ -1,0 +1,14 @@
+import client from './client';
+export const login = (data) => client.post('/auth/login/', data);
+export const register = (data) => client.post('/auth/register/', data);
+export const logout = (refresh) => client.post('/auth/logout/', { refresh });
+export const getMe = () => client.get('/auth/me/');
+export const updateProfile = (data) => client.patch('/auth/profile/', data);
+export const changePassword = (data) => client.post('/auth/change-password/', data);
+export const getUsers = (params) => client.get('/auth/users/', { params });
+export const toggleUserActive = (id) => client.post(`/auth/users/${id}/toggle-active/`);
+export const unlockUser = (id) => client.post(`/auth/users/${id}/unlock/`);
+export const deleteUser = (id) => client.delete(`/auth/users/${id}/`);
+export const getAuditLogs = (params) => client.get('/auth/audit-logs/', { params });
+export const requestPasswordReset = (data) => client.post('/auth/password-reset/', data);
+export const confirmPasswordReset = (data) => client.post('/auth/password-reset/confirm/', data);
